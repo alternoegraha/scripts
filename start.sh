@@ -4,14 +4,14 @@ set -e
 #Credit to Meghthedev for the initial script 
 
 # init
-repo init -u https://github.com/crdroidandroid/android.git -b 14.0 --git-lfs
+repo init -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
 crave run --clean --no-patch -- "rm -rf * .repo && \
 
 # init PixelOS
-repo init -u --depth=1 https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
+repo init --depth=1 -u https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
