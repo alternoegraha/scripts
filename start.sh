@@ -17,7 +17,7 @@ repo init -u https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b 14-staging https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b fourteen-oss https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # clone hardware/xiaomi
 git clone https://github.com/PixelOS-AOSP/hardware_xiaomi hardware/xiaomi && \
