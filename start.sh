@@ -11,7 +11,7 @@ repo init -u https://github.com/crdroidandroid/android.git -b 14.0 --git-lfs
 crave run --clean --no-patch -- "rm -rf * .repo && \
 
 # init PixelOS
-repo init -u https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
+repo init -u --depth=1 https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
