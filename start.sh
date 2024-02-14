@@ -10,6 +10,9 @@ repo init --depth 1 -u https://github.com/crdroidandroid/android.git -b 14.0 --g
 # Remove existing local_manifests
 crave run --clean --no-patch -- "rm -rf .repo .repo/local_manifests device external frameworks hardware vendor && \
 
+# Init LineageOS 21
+repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
+
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
