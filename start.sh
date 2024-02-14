@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/crdroidandroid/android.git -b 14.0 --g
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --clean --no-patch -- "rm -rf .repo .repo/local_manifests device hardware vendor && \
+crave run --clean --no-patch -- "rm -rf .repo .repo/local_manifests device external frameworks hardware vendor && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
