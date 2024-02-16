@@ -19,9 +19,6 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \
 # sync tree
 git clone -b lineage-21 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
-# clone hardware/xiaomi
-git clone -b lineage-21 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi && \
-
 # Set up build environment
 source build/envsetup.sh && \
 
