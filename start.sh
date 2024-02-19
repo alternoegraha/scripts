@@ -4,11 +4,11 @@ set -e
 #Credit to Meghthedev for the initial script 
 
 # init
-repo init -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1
+repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --clean --no-patch -- "rm -rf * .repo && \
+crave run --clean --no-patch -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
 
 # init PixelOS
 repo init --depth=1 -u https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
