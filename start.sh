@@ -4,14 +4,11 @@ set -e
 #Credit to Meghthedev for the initial script 
 
 # init
-repo init --depth 1 -u https://github.com/crdroidandroid/android.git -b 14.0 --git-lfs
+repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --clean --no-patch -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
-
-# Init LineageOS 21
-repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
+crave run --clean --no-patch -- "rm -rf .repo/local_manifests && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
