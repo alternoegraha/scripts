@@ -29,7 +29,7 @@ source build/envsetup.sh && \
 lunch aosp_fog-userdebug && \
 
 # Build the ROM
-mka bacon"
+mka bacon" --projectID=72
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip
