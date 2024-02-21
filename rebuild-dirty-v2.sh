@@ -16,13 +16,13 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \
 # fetch dt commits
 cd device/xiaomi/fog && \
 git fetch && \
-git pull --rebase && \
+git pull && \
 cd ../../.. && \
 
 # fetch kernel commits
 cd kernel/xiaomi/fog && \
 git fetch && \
-git pull --rebase && \
+git pull && \
 cd ../../.. && \
 
 # Set up build environment
