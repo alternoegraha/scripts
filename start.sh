@@ -26,4 +26,4 @@ lunch lineage_fog-userdebug && \
 mka bacon"
 
 # Pull generated zip files
-crave pull out/target/product/*/*.zip
+crave pull out/target/product/*/*.zip --projectID=72
