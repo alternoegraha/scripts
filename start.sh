@@ -10,6 +10,9 @@ repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 
 # Remove existing local_manifests
 crave run --clean --no-patch --projectID=72 -- "rm -rf .repo/local_manifests && \
 
+# set timezone
+export TZ='Asia/Jakarta' && \
+
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
