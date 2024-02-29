@@ -13,23 +13,23 @@ crave run --clean --no-patch --projectID=72 -- "rm -rf .repo .repo/local_manifes
 # set timezone
 export TZ='Asia/Jakarta' && \
 
-# init PixelOS
-repo init --depth=1 -u https://github.com/PixelOS-AOSP/manifest.git -b fourteen --git-lfs && \
+# init SupExt
+repo init --depth=1 -u https://github.com/SuperiorExtended/manifest -b UDC --git-lfs && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b fourteen-oss https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b supext https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # clone hardware/xiaomi
-git clone https://github.com/PixelOS-AOSP/hardware_xiaomi hardware/xiaomi && \
+git clone https://github.com/SuperiorExtended/hardware_xiaomi hardware/xiaomi && \
 
 # Set up build environment
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch aosp_fog-userdebug && \
+lunch superior_fog-userdebug && \
 
 # Build the ROM
 mka bacon"
