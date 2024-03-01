@@ -13,23 +13,23 @@ crave run --clean --no-patch --projectID=72 -- "rm -rf .repo .repo/local_manifes
 # set timezone
 export TZ='Asia/Jakarta' && \
 
-# init SupExt
-repo init --depth=1 -u https://github.com/SuperiorExtended/manifest -b UDC --git-lfs && \
+# init EvoX
+repo init --depth=1 -u https://github.com/Evolution-X/manifest -b udc && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b supext https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b evox-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch superior_fog-userdebug && \
+lunch evolution_fog-userdebug && \
 
 # Build the ROM
-mka bacon"
+m evolution"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=72
