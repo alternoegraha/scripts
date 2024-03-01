@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --clean --no-patch --projectID=72 -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
+crave run --no-patch --projectID=72 -- "rm -rf .repo/local_manifests && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
