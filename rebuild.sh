@@ -4,11 +4,11 @@ set -e
 #Credit to Meghthedev for the initial script 
 
 # init
-repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
+repo init --depth 1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=72 -- "rm -rf device evolution vendor kernel && \
+crave run --no-patch --projectID=72 -- "rm -rf device vendor kernel && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -17,16 +17,16 @@ export TZ='Asia/Jakarta' && \
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b evox-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b derpfest-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch evolution_fog-userdebug && \
+lunch derp_fog-userdebug && \
 
 # Build the ROM
-m evolution"
+m derp"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=72
