@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=72 -- "rm -rf device vendor kernel && \
+crave run --no-patch --projectID=64 -- "rm -rf device vendor kernel && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -29,4 +29,4 @@ lunch derp_fog-userdebug && \
 m derp"
 
 # Pull generated zip files
-crave pull out/target/product/*/*.zip --projectID=72
+crave pull out/target/product/*/*.zip --projectID=64
