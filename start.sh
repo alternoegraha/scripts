@@ -13,7 +13,7 @@ crave run --no-patch --projectID=64 -- "rm -rf .repo .repo/local_manifests andro
 # set timezone
 export TZ='Asia/Jakarta' && \
 
-# init EvoX
+# init derp14
 repo init --depth=1 -u https://github.com/DerpFest-AOSP/manifest.git -b 14 && \
 
 # sync repo
