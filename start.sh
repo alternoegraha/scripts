@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=72 -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
+crave run --no-patch --projectID=64 -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -32,4 +32,4 @@ lunch derp_fog-userdebug && \
 m derp"
 
 # Pull generated zip files
-crave pull out/target/product/*/*.zip --projectID=72
+crave pull out/target/product/*/*.zip --projectID=64
