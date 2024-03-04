@@ -8,22 +8,16 @@ repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=72 -- "rm -rf .repo/local_manifests && \
+crave run --no-patch --projectID=72 -- "rm -rf device vendor kernel && \
+
+# set timezone
+export TZ='Asia/Jakarta' && \
 
 # re-sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
-# fetch dt commits
-cd device/xiaomi/fog && \
-git fetch && \
-git pull && \
-cd ../../.. && \
-
-# fetch kernel commits
-cd kernel/xiaomi/fog && \
-git fetch && \
-git pull && \
-cd ../../.. && \
+# sync tree
+git clone -b usb-qti-again https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
@@ -35,4 +29,4 @@ lunch lineage_fog-userdebug && \
 mka bacon"
 
 # Pull generated zip files
-crave pull out/target/product/*/*.zip
+crave pull out/target/product/*/*.zip --projectID=72
