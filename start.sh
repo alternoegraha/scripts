@@ -13,23 +13,23 @@ crave run --no-patch --projectID=64 -- "rm -rf .repo .repo/local_manifests andro
 # set timezone
 export TZ='Asia/Jakarta' && \
 
-# init derp14
-repo init --depth=1 -u https://github.com/DerpFest-AOSP/manifest.git -b 14 && \
+# init PixelExperience
+repo init --depth=1 -u https://github.com/PixelExperience/manifest -b fourteen && \
 
 # sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b derpfest-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b pixel-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch derp_fog-userdebug && \
+lunch aosp_fog-userdebug && \
 
 # Build the ROM
-m derp"
+m bacon"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=64
