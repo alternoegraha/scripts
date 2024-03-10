@@ -8,16 +8,13 @@ repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch -- "rm -rf .repo/local_manifests && \
+crave run --no-patch -- "rm -rf .repo/local_manifests device vendor kernel && \
 
 # re-sync repo
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
-# remove dt/kt for some reason
-rm -rf device/xiaomi/fog kernel/xiaomi/fog && \
-
 # sync tree again
-git clone -b lineage-21 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b lineage-21-miuicamera https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
