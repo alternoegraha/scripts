@@ -4,11 +4,11 @@ set -e
 #Credit to Meghthedev for the initial script 
 
 # init
-repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
+repo init --depth 1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=72 -- "rm -rf device evolution vendor kernel && \
+crave run --no-patch --projectID=64 -- "rm -rf device evolution vendor kernel && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -29,4 +29,4 @@ lunch evolution_fog-userdebug && \
 m evolution"
 
 # Pull generated zip files
-crave pull out/target/product/*/*.zip --projectID=72
+crave pull out/target/product/*/*.zip --projectID=64
