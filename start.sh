@@ -14,7 +14,7 @@ crave run --clean --no-patch --projectID=72 -- "rm -rf .repo/local_manifests && 
 export TZ='Asia/Jakarta' && \
 
 # sync repo
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
+repo sync -c -j\$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
 git clone -b lineage-21 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
