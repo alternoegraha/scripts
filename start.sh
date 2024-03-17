@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/ArrowOS/android_manifest.git -b arrow-
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=73 -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
+crave run --no-patch --projectID=73 -- "rm -rf .repo .repo/local_manifests prebuilts && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -17,7 +17,7 @@ export TZ='Asia/Jakarta' && \
 repo init --depth=1 -u https://github.com/PixelExperience/manifest -b fourteen && \
 
 # sync repo
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
+repo sync -c -j\$(nproc --all) --force-sync --prune --no-clone-bundle --no-tags && \ 
 
 # sync tree
 git clone -b pixel-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
@@ -29,7 +29,7 @@ source build/envsetup.sh && \
 lunch aosp_fog-userdebug && \
 
 # Build the ROM
-m bacon"
+m bacon -j\$(nproc --all)"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=73
