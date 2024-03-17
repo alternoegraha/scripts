@@ -14,7 +14,7 @@ crave run --no-patch --projectID=73 -- "rm -rf device vendor kernel && \
 export TZ='Asia/Jakarta' && \
 
 # sync repo
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
+repo sync -c -j\$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
 git clone -b pixel-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
@@ -26,7 +26,7 @@ source build/envsetup.sh && \
 lunch aosp_fog-userdebug && \
 
 # Build the ROM
-m bacon"
+m bacon -j\$(nproc --all)"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=73
