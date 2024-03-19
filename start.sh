@@ -8,7 +8,7 @@ repo init --depth 1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 
 # Run inside foss.crave.io devspace
 # Remove existing local_manifests
-crave run --no-patch --projectID=64 -- "rm -rf .repo .repo/local_manifests android art bionic bootable build cts dalvik developers development device external frameworks hardware kernel libcore libnativehelper lineage-sdk packages pdk platform platform_testing prebuilts sdk system test toolchain tools vendor && \
+crave run --no-patch --projectID=64 -- "rm -rf .repo .repo/local_manifests prebuilts && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
@@ -17,7 +17,7 @@ export TZ='Asia/Jakarta' && \
 repo init --depth=1 -u https://github.com/Evolution-X/manifest -b udc && \
 
 # sync repo
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
+repo sync -c -j\$(nproc --all) --force-sync --prune --no-clone-bundle --no-tags && \ 
 
 # sync tree
 git clone -b evox-14 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
@@ -26,10 +26,10 @@ git clone -b evox-14 https://github.com/alternoegraha/device_xiaomi_fog device/x
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch evolution_fog-userdebug && \
+lunch evolution_fog-eng && \
 
 # Build the ROM
-m evolution"
+m evolution -j\$(nproc --all)"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=64
