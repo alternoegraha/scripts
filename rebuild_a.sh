@@ -23,7 +23,7 @@ git clone -b usb-o-rama https://github.com/alternoegraha/device_xiaomi_fog devic
 source build/envsetup.sh && \
 
 # Lunch configuration
-lunch lineage_fog-userdebug && \
+lunch lineage_fog-ap1a-userdebug && \
 
 # Build the ROM
 mka bacon -j\$(nproc --all)"
