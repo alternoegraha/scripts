@@ -17,7 +17,7 @@ export TZ='Asia/Jakarta' && \
 repo sync -c -j\$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b lineage-21 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b lineage-21-qpr2 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # Set up build environment
 source build/envsetup.sh && \
@@ -26,7 +26,7 @@ source build/envsetup.sh && \
 lunch lineage_fog-userdebug && \
 
 # Build the ROM
-mka bacon"
+mka bacon -j\$(nproc --all)"
 
 # Pull generated zip files
 crave pull out/target/product/*/*.zip --projectID=72
