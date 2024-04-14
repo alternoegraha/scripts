@@ -22,9 +22,6 @@ repo sync -c -j\$(nproc --all) --force-sync --no-clone-bundle --no-tags --prune 
 # sync tree
 git clone -b fourteen-qpr2 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
-# clone hardware/xiaomi
-git clone https://github.com/PixelOS-AOSP/hardware_xiaomi hardware/xiaomi && \
-
 # Set up build environment
 source build/envsetup.sh && \
 
