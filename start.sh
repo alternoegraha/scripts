@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 # Run inside foss.crave.io devspace
-crave run --no-patch -- "rm -rf .repo .repo/local_manifests && \
+crave run --no-patch -- "rm -rf .repo/local_manifests && \
 
 # set timezone
 export TZ='Asia/Jakarta' && \
