@@ -1,7 +1,7 @@
 export TZ='Asia/Jakarta'
 BUILDDATE=$(date +%Y%m%d)
-KERNEL_DIR='kramel'
-KERNEL_NAME='Mi680-Makeine'
+KERNEL_DIR='kernel_device_name'
+KERNEL_NAME='YourName-Kernel'
 PIXELDRAIN_API_KEY=''
 # BUILDTIME=$(date +%H%M)
 
@@ -9,9 +9,9 @@ PIXELDRAIN_API_KEY=''
 rm -rf AnyKernel3/Image.gz 
 
 # set environment variable
-export KBUILD_BUILD_USER=alternoegraha
-export KBUILD_BUILD_HOST=Nurture
-PATH="clang-llvm/bin:${PATH}"
+export KBUILD_BUILD_USER=user
+export KBUILD_BUILD_HOST=host
+# PATH="/path/to/clang-llvm/bin:${PATH}"
 
 # Install dependencies
 sudo apt update && sudo apt install -y bc cpio nano bison ca-certificates curl flex gcc git libc6-dev libssl-dev openssl python-is-python3 ssh wget zip zstd sudo make clang gcc-arm-linux-gnueabi software-properties-common build-essential libarchive-tools gcc-aarch64-linux-gnu
@@ -39,8 +39,8 @@ git clone --depth=1 https://github.com/alternoegraha/AnyKernel3-680 -b master An
 cp -R "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
 # Zip it and upload to pixeldrain
 cd AnyKernel3
-zip -r9 "$KERNEL_NAME"-KSU-"$BUILDDATE" . -x ".git*" -x "README.md" -x "*.zip"
-# curl -T "$KERNEL_NAME"-KSU-"$BUILDDATE".zip -u :"$PIXELDRAIN_API_KEY" https://pixeldrain.com/api/file/
+zip -r9 "$KERNEL_NAME"-"$BUILDDATE" . -x ".git*" -x "README.md" -x "*.zip"
+# curl -T "$KERNEL_NAME"-"$BUILDDATE".zip -u :"$PIXELDRAIN_API_KEY" https://pixeldrain.com/api/file/
 # finish
 cd ..
 rm -rf "$KERNEL_DIR"/out/
