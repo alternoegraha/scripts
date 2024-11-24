@@ -7,7 +7,7 @@ crave run --no-patch -- "rm -rf .repo/local_manifests && \
 rm -rf device/xiaomi/fog && \
 
 # clone local manifests
-git clone https://github.com/alternoegraha/local_manifest.git .repo/local_manifests && \
+git clone -b lineage-21 https://github.com/alternoegraha/local_manifest.git .repo/local_manifests && \
 
 # resync repo
 repo sync -c -j20 --force-sync --no-clone-bundle --no-tags && \ 
