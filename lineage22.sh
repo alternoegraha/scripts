@@ -4,7 +4,7 @@ set -e
 crave run --no-patch -- "rm -rf .repo .repo/local_manifests && \
 
 # init LOS22
-repo init --depth=1 -u https://github.com/LineageOS/android -b lineage-22.0 --git-lfs && \
+repo init --depth=1 -u https://github.com/LineageOS/android.git -b lineage-22.0 --git-lfs && \
 
 # sync + fixup repo
 bash /opt/crave/resync.sh && \
