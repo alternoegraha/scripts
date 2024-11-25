@@ -11,6 +11,7 @@ bash /opt/crave/resync.sh && \
 
 # clone device tree
 git clone -b lineage-22 https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b lineage-21 https://github.com/alternoegraha/keys vendor/lineage-priv/keys && \
 
 # Set up build environment
 source build/envsetup.sh && \
